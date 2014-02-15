@@ -30,6 +30,7 @@
                 })
             },
             listItem: function(m) {
+                console.log(m)
                 if (this.$(".list li[data-id='" + m.id + "']").length == 0) {
                     this.$('.list').append("<li data-id='" + m.id + "'>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
                 }
