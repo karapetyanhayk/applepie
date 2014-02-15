@@ -8,6 +8,7 @@
                 this.items = new Items(null, {
                     s: this.___.so
                 });
+                this.items.on("add", this.listItem, this);
                 var Home = require('text!/html/index.html');
                 this.home = _.template(Home);
                 that.render();
@@ -21,11 +22,14 @@
                 that.items.fetch({
                     success: function() {
                         that.items.each(function(m) {
-                            that.$('.list').append("<li>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>")
-                        })
+                            that.$('.list').append("<li>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
+                        });
                     },
                     data: {}
                 })
+            },
+            listItem: function(m) {
+                if (this.$(".list li[data-id='" + m.id + "']").length == 0) that.$('.list').append("<li data-id='" + m.id + "'>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>")
             },
             createItem: function() {
                 var that = this;
