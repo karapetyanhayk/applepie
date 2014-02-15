@@ -18,11 +18,14 @@
             render: function() {
                 var that = this;
                 that.$el.html(this.home({}))
-                /* that.items.fetch({
-                    success:function(){
-                    },data:{}
+                that.items.fetch({
+                    success: function() {
+                        that.items.each(function(m) {
+                            that.$('.list').append("<li>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>")
+                        })
+                    },
+                    data: {}
                 })
-             */
             },
             createItem: function() {
                 var that = this;
