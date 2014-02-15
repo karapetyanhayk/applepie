@@ -22,14 +22,17 @@
                 that.items.fetch({
                     success: function() {
                         that.items.each(function(m) {
-                            that.$('.list').append("<li>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
+                            that.listItem(m);
+                            //that.$('.list').append("<li>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
                         });
                     },
                     data: {}
                 })
             },
             listItem: function(m) {
-                if (this.$(".list li[data-id='" + m.id + "']").length == 0) that.$('.list').append("<li data-id='" + m.id + "'>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>")
+                if (this.$(".list li[data-id='" + m.id + "']").length == 0) {
+                    that.$('.list').append("<li data-id='" + m.id + "'>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
+                }
             },
             createItem: function() {
                 var that = this;
