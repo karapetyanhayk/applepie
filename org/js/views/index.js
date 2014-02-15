@@ -31,7 +31,7 @@
             },
             listItem: function(m) {
                 if (this.$(".list li[data-id='" + m.id + "']").length == 0) {
-                    that.$('.list').append("<li data-id='" + m.id + "'>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
+                    this.$('.list').append("<li data-id='" + m.id + "'>" + m.get("body.firstname") + " " + m.get("body.lastname") + "</li>");
                 }
             },
             createItem: function() {
