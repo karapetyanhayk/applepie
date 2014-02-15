@@ -1,6 +1,6 @@
 module.exports = 
 {
-	 "title" : "Live Sqrd"
+	 "title" : "Darth Vaders Page"
 	,"api"		: {
 				}
 	,"useAuth" 	: false
